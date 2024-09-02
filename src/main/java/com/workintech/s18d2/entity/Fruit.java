@@ -1,19 +1,20 @@
 package com.workintech.s18d2.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
 @Entity
-@Table(name = "Fruit", schema = "fsweb")
-public class Fruit {
+@NoArgsConstructor
+@Table(name = "fruit", schema = "fsweb")
+public class Fruit extends Plant {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
-
-    private String name;
-    private double price;
 
     @Enumerated(EnumType.STRING)
+    @Column(name="fruit_type")
+    @NotNull
     private FruitType fruitType;
 
 }
